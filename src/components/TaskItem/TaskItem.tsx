@@ -53,7 +53,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, toggleCompleted, deleteTask }
         setPercent(progress);
       },
       (error) => {
-        console.error;
+        console.log(error);
       },
       () => {
         getDownloadURL(storageRef).then((downloadURL) => {
