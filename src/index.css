@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap');
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 3rem;
+  background: rgb(28, 23, 111);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(28, 23, 111, 1) 0%,
+    rgba(133, 136, 247, 1) 0%,
+    rgba(21, 205, 229, 1) 77%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(28, 23, 111, 1) 0%,
+    rgba(133, 136, 247, 1) 0%,
+    rgba(21, 205, 229, 1) 77%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(28, 23, 111, 1) 0%,
+    rgba(133, 136, 247, 1) 0%,
+    rgba(21, 205, 229, 1) 77%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1c176f",endColorstr="#15cde5",GradientType=1);
+}
