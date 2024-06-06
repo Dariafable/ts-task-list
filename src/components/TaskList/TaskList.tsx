@@ -19,7 +19,7 @@ import {
 import { TaskItem } from "../TaskItem";
 import { AddTask } from "../AddTask";
 
-import { Task } from "../../types";
+import { Task, TaskFilter } from "../../types";
 
 import "./TaskListStyles.scss";
 
@@ -29,7 +29,7 @@ const TaskList: React.FC = () => {
   const [tasks, setTasks] = React.useState<Task[]>([]);
   const [input, setInput] = React.useState<string>("");
   const [date, setDate] = React.useState<string>("");
-  const [filter, setFilter] = React.useState<"all" | "active" | "completed">("all");
+  const [filter, setFilter] = React.useState<TaskFilter>(TaskFilter.ALL);
 
   React.useEffect(() => {
     const q = query(collection(db, "tasks"), orderBy("timestamp", "desc"));
@@ -73,7 +73,7 @@ const TaskList: React.FC = () => {
     });
   };
 
-  const handleFilterChange = (filter: "all" | "active" | "completed") => {
+  const handleFilterChange = (filter: TaskFilter) => {
     setFilter(filter);
   };
 
@@ -135,22 +135,22 @@ const TaskList: React.FC = () => {
         <div className="task-buttons">
           <button
             id="all-filter-button"
-            className={`task-button ${filter === "all" ? "active" : ""}`}
-            onClick={() => handleFilterChange("all")}
+            className={`task-button ${filter === TaskFilter.ALL ? "active" : ""}`}
+            onClick={() => handleFilterChange(TaskFilter.ALL)}
           >
             all
           </button>
           <button
             id="active-filter-button"
-            className={`task-button ${filter === "active" ? "active" : ""}`}
-            onClick={() => handleFilterChange("active")}
+            className={`task-button ${filter === TaskFilter.ACTIVE ? "active" : ""}`}
+            onClick={() => handleFilterChange(TaskFilter.ACTIVE)}
           >
             active
           </button>
           <button
             id="completed-filter-button"
-            className={`task-button ${filter === "completed" ? "active" : ""}`}
-            onClick={() => handleFilterChange("completed")}
+            className={`task-button ${filter === TaskFilter.COMPLETED ? "active" : ""}`}
+            onClick={() => handleFilterChange(TaskFilter.COMPLETED)}
           >
             completed
           </button>

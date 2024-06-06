@@ -8,6 +8,12 @@ export interface Task {
   timestamp: string;
 }
 
+export enum TaskFilter {
+  ALL = "all",
+  ACTIVE = "active",
+  COMPLETED = "completed",
+}
+
 export interface TaskItemProps {
   task: Task;
   toggleCompleted: (task: Task) => void;
